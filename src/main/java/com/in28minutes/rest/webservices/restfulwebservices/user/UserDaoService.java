@@ -1,9 +1,12 @@
 package com.in28minutes.rest.webservices.restfulwebservices.user;
 
+import org.springframework.stereotype.Controller;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Controller
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
 

@@ -21,7 +21,7 @@ public class UserResource {
         return service.findAll();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/users/{id}")
     public User retrieveUser(@PathVariable int id) {
         User user = service.findOne(id);
         if (user == null) {

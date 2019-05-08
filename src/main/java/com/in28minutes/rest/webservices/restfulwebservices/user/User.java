@@ -3,13 +3,22 @@ package com.in28minutes.rest.webservices.restfulwebservices.user;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 
 @ApiModel(description = "All the details about the user for swagger document")
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue
     private Integer Id;
 
 
@@ -22,6 +31,16 @@ public class User {
     @ApiModelProperty(notes="Birth date cannot be in the past")
     private Date birthDate;
 
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
     public Integer getId() {
         return this.Id;
